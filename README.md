@@ -1,6 +1,8 @@
 바보 (사전)
 ===========
 
+> The world will have a generation of idiots.. by Albert Einstein
+
 This is a korean dictionary which is only for specific reasons.
 
 

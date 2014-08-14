@@ -1,23 +1,14 @@
 # -*- coding: utf-8 -*-
 """
-Line -- May the LINE be with you...
-=========================================
-
-If you're reading this code, you should know what LINE is.
-
-Just play. Have fun. Enjoy the LINE!
-```````````````````````````
-
-::
-
-    >>> from line import Client
+babo -- The world will have a generation of idiots
+==================================================
 
 Links
 `````
 
-* `GitHub repository <http://github.com/carpedm20/line>`_
+* `GitHub repository <http://github.com/carpedm20/babo>`_
 * `development version
-  <http://github.com/carpedm20/line/zipball/master>`_
+  <http://github.com/carpedm20/babo/zipball/master>`_
 
 
 """
@@ -32,21 +23,21 @@ except ImportError:
     from setuptools import setup
 
 # detect the current version
-with open('line/__init__.py') as f:
+with open('babo/__init__.py') as f:
     version = re.search(r'__version__\s*=\s*\'(.+?)\'', f.read()).group(1)
 assert version
 
 setup(
-    name='line',
-    packages=['line'],
+    name='babo',
+    packages=['babo'],
     version=version,
     description='May the LINE be with you...',
     long_description=open('README.rst').read(),
     license='BSD License',
     author='Taehoon Kim',
     author_email='carpedm20@gmail.com',
-    url='http://carpedm20.github.io/line',
-    keywords=['line'],
+    url='http://github.com/carpedm20/babo',
+    keywords=['babo'],
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Environment :: Console',
@@ -68,8 +59,5 @@ setup(
         'Topic :: Communications :: Chat',
     ],
     install_requires=[
-        'requests',
-        'curve',
-        'rsa'
     ],
 )
