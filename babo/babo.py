@@ -1,14 +1,21 @@
 #-*- coding: utf-8 -*-
+"""
+    babo.babo
+    ~~~~~~~~~
+
+    Definition of Babo dictionary class
+
+    :copyright: (c) 2014 by Taehoon Kim.
+    :license: BSD, see LICENSE for more details.
+"""
 import hangul
 import json
 
-class WordPosition(object):
-
-    def __init__(self):
-        pass
-    
-
 class Babo(object):
+    jungseongs = []
+    jongseongs = []
+    choseongs = []
+
     def __init__(self, file_name=None, debug=False):
         self.debug = debug
 
@@ -20,17 +27,42 @@ class Babo(object):
 
         self.choseongs = []
 
-        word_list = [list(word) for word in self.words]
-        for word in word_list:
-            choseong = []
+        for mode in range(3):
+            self._make_serach_table(mode)
+
+    def get_search_table(self, mode=0):
+        """
+        :param mode:
+            - 0: Choseong (default)
+            - 1: Jungseong
+            - 2: Jongseong
+        """
+        if mode == 1:
+            return self.jungseongs
+        elif mode == 2:
+            return self.jongseongs
+        else:
+            return self.choseongs
+
+    def _make_search_tables(self, mode=0):
+        """
+        :param mode:
+            - 0: Choseong (default)
+            - 1: Jungseong
+            - 2: Jongseong
+        """
+        table = get_search_table(mode)
+
+        for word in [list(word) for word in self.words]:
+            items = []
 
             for char in word:
-                choseong.append(hangul.split(char)[0])
+                items.append(hangul.split(char)[mode])
 
-            self.choseongs.append(choseong)
+            self.table.append(items)
 
-    def choseong_dict(self, choseong_to_find):
-        """Dictionary for choesongs
+    def choseong(self, choseong_to_find):
+        """Dictionary for choseongs
         
         :param choseongs: a list of Choseong  ex) u'ㅂㅂ'
         """
@@ -48,7 +80,12 @@ class Babo(object):
             print len(ans)
         return ans
 
-    def search_choseong(self, char, position):
+    def choseong_detail(self, jaeum, position):
+        """Search words with detailed choseong info
+
+        :param jaeum: character to search  ex) u'ㄱ'
+        :param position: position of character to search
+        """
         ans = []
 
         for idx, choseong in enumerate(self.choseongs):
@@ -58,7 +95,30 @@ class Babo(object):
             except:
                 continue
 
+        if self.debug:
+            print len(ans)
         return ans
 
-    def positions_at(self, positions = []):
+    def detail_search(self, eumjul, position, mode=0):
+        """
+        :param mode:
+            - 0: Choseong (default)
+            - 1: Jungseong
+            - 2: Jongseong
+        """
+        ans   = []
+        table = self.get_search_table(mode)
+
+        for idx, item in enumerate(table):
+            try:
+                if eumjul == item[position]:
+                    ans.append(self.words[idx])
+            except:
+                continue
+
+        if self.debug:
+            print len(ans)
+        return ans
+
+    def position(self, char, positions):
         pass
