@@ -9,9 +9,9 @@ class WordPosition(object):
     
 
 class Babo(object):
-    debug = False
+    def __init__(self, file_name=None, debug=False):
+        self.debug = debug
 
-    def __init__(self, file_name=None):
         if not file_name:
             file_name = 'words.json'
 

@@ -19,10 +19,13 @@ To use 바보 dictionary, you need to make a `Babo` instance.
 If you want to find words with `Choseong(초성)`, you can use:
 
     >>> words = dictionary.choseong_dict(u'ㅂㅂ')
-    >>> print words[0]
-    밥보
+    334
     >>> print words[1]
     병비
+    >>> words = dictionary.choseong_dict(u'ㄱㄴㄷ')
+    16
+    >>> print words[0]
+    겨냥도
 
 ###2. Detailed search of `Choseong`###
 
