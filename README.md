@@ -6,6 +6,32 @@
 This is a korean dictionary which is only for specific reasons.
 
 
+Documentation
+-------------
+
+To use 바보 dictionary, you need to make a `Babo` instance.
+
+    >>> from babo import Babo
+    >>> dictionary = Babo()
+
+###1. `Choseong` Dictionary###
+
+If you want to find words with `Choseong(초성)`, you can use:
+
+    >>> words = dictionary.choseong_dict(u'ㅂㅂ')
+    >>> print words[0]
+    밥보
+    >>> print words[1]
+    병비
+
+###2. Detailed search of `Choseong`###
+
+If you want to find words with more detail information like you want to find words which has 'ㄱ' at second position:
+
+    >>> words = search_choseong(u'ㄱ', 0)
+    >>> print words[0]
+
+
 Todo
 ----
 

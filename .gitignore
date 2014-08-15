@@ -1,6 +1,9 @@
 *py[co]
 
 #test
+extractor
+*.json
+*.csv
 *.xml
 *.sh
 *test*

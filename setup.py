@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+
 """
 babo -- The world will have a generation of idiots
 ==================================================
